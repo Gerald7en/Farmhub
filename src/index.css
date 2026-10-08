@@ -1223,3 +1223,681 @@ button {
 
   font-size: 20px;
 }
+/* =========================
+   RECORD MILK
+========================= */
+
+.record-milk-page {
+  padding-bottom: 30px;
+}
+
+.record-milk-heading {
+  margin-top: 27px;
+}
+
+/* =========================
+   SESSION SELECTOR
+========================= */
+
+.milk-session-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 5px;
+
+  margin-top: 27px;
+
+  padding: 5px;
+
+  border-radius: 17px;
+
+  background: #e9ebe6;
+}
+
+.milk-session-selector button {
+  height: 42px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: transparent;
+
+  color: #777d76;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.milk-session-selector button.selected {
+  background: #ffffff;
+
+  color: #20241f;
+
+  box-shadow: 0 3px 10px rgba(25, 30, 26, 0.07);
+}
+
+/* =========================
+   RECORD SECTIONS
+========================= */
+
+.record-section {
+  margin-top: 31px;
+}
+
+.milk-input-list {
+  display: grid;
+
+  gap: 9px;
+}
+
+.milk-input-card {
+  display: flex;
+  align-items: center;
+
+  min-height: 72px;
+
+  padding: 10px 12px;
+
+  border: 1px solid rgba(25, 30, 26, 0.055);
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow: 0 7px 22px rgba(25, 30, 26, 0.03);
+}
+
+.milk-cow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  background: #f0f1ed;
+
+  font-size: 23px;
+}
+
+.milk-cow-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  margin-left: 12px;
+}
+
+.milk-cow-name strong {
+  font-size: 14px;
+}
+
+.milk-cow-name span {
+  color: #929791;
+
+  font-size: 9px;
+}
+
+.litre-input {
+  display: flex;
+  align-items: center;
+
+  margin-left: auto;
+
+  width: 80px;
+  height: 42px;
+
+  padding: 0 9px;
+
+  border: 1px solid #e2e4df;
+  border-radius: 13px;
+
+  background: #fafaf8;
+}
+
+.litre-input input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 15px;
+  font-weight: 650;
+
+  text-align: right;
+}
+
+.litre-input input::placeholder {
+  color: #b3b7b1;
+}
+
+.litre-input span {
+  margin-left: 4px;
+
+  color: #8d938b;
+
+  font-size: 10px;
+}
+
+/* Remove number input arrows */
+
+.litre-input input::-webkit-outer-spin-button,
+.litre-input input::-webkit-inner-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+.litre-input input[type="number"] {
+  appearance: textfield;
+}
+
+/* =========================
+   TOTAL
+========================= */
+
+.milk-total-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  padding: 19px 20px;
+
+  border-radius: 22px;
+
+  background: #20241f;
+
+  color: #ffffff;
+
+  box-shadow: 0 10px 28px rgba(22, 27, 23, 0.1);
+}
+
+.milk-total-card span {
+  display: block;
+
+  color: #aeb5aa;
+
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.milk-total-card strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 24px;
+
+  letter-spacing: -0.04em;
+}
+
+.milk-total-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #d9ddd6;
+
+  font-size: 20px;
+}
+
+/* =========================
+   MILK MOVEMENT
+========================= */
+
+.milk-movement-card {
+  padding: 18px;
+
+  border: 1px solid rgba(25, 30, 26, 0.055);
+  border-radius: 21px;
+
+  background: #ffffff;
+
+  box-shadow: 0 7px 22px rgba(25, 30, 26, 0.03);
+}
+
+.milk-movement-card label {
+  display: block;
+
+  color: #6f766e;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.movement-input {
+  display: flex;
+  align-items: center;
+
+  height: 52px;
+
+  margin-top: 10px;
+
+  padding: 0 14px;
+
+  border: 1px solid #e2e4df;
+  border-radius: 15px;
+
+  background: #fafaf8;
+}
+
+.movement-input input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.movement-input span {
+  color: #8d938b;
+
+  font-size: 11px;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.milk-summary-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 12px;
+
+  padding: 18px 14px;
+
+  border: 1px solid rgba(25, 30, 26, 0.055);
+  border-radius: 21px;
+
+  background: #ffffff;
+
+  box-shadow: 0 7px 22px rgba(25, 30, 26, 0.03);
+}
+
+.milk-summary-card div {
+  text-align: center;
+}
+
+.milk-summary-card div + div {
+  border-left: 1px solid #eceee9;
+}
+
+.milk-summary-card span {
+  display: block;
+
+  color: #929791;
+
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.milk-summary-card strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 14px;
+}
+
+/* =========================
+   SAVE
+========================= */
+
+.save-milk-button {
+  width: 100%;
+  height: 54px;
+
+  margin-top: 25px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #20241f;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  box-shadow: 0 10px 25px rgba(22, 27, 23, 0.12);
+
+  transition: transform 0.2s ease;
+}
+
+.save-milk-button:active {
+  transform: scale(0.98);
+}
+/* =========================
+   COW LIST
+========================= */
+
+.cows-page,
+.add-cow-page {
+  padding-bottom: 30px;
+}
+
+.cows-heading,
+.add-cow-heading {
+  margin-top: 27px;
+}
+
+.cows-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 27px;
+}
+
+.cows-summary div {
+  padding: 18px;
+
+  border: 1px solid rgba(25, 30, 26, 0.055);
+  border-radius: 21px;
+
+  background: #ffffff;
+
+  box-shadow: 0 7px 22px rgba(25, 30, 26, 0.03);
+}
+
+.cows-summary span {
+  display: block;
+
+  color: #929791;
+
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.cows-summary strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 23px;
+
+  letter-spacing: -0.045em;
+}
+
+.cows-section {
+  margin-top: 34px;
+}
+
+.all-cows-list {
+  display: grid;
+  gap: 10px;
+}
+
+.all-cow-card {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 82px;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgba(25, 30, 26, 0.055);
+  border-radius: 21px;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  box-shadow: 0 7px 22px rgba(25, 30, 26, 0.03);
+
+  transition: transform 0.2s ease;
+}
+
+.all-cow-card:active {
+  transform: scale(0.985);
+}
+
+.all-cow-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  border-radius: 17px;
+
+  background: #f0f1ed;
+
+  font-size: 27px;
+}
+
+.all-cow-info {
+  margin-left: 13px;
+}
+
+.all-cow-info h3 {
+  font-size: 15px;
+
+  letter-spacing: -0.025em;
+}
+
+.all-cow-info p {
+  margin-top: 4px;
+
+  color: #929791;
+
+  font-size: 9px;
+}
+
+.all-cow-right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-left: auto;
+  padding-left: 8px;
+}
+
+.all-cow-right strong {
+  white-space: nowrap;
+
+  font-size: 10px;
+}
+
+.all-cow-right span {
+  color: #a2a7a1;
+
+  font-size: 20px;
+}
+
+.add-cow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  width: 100%;
+  height: 54px;
+
+  margin-top: 27px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #20241f;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  box-shadow: 0 10px 25px rgba(22, 27, 23, 0.12);
+}
+
+.add-cow-button span {
+  font-size: 21px;
+  font-weight: 300;
+}
+
+/* =========================
+   ADD COW
+========================= */
+
+.cow-photo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 29px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(25, 30, 26, 0.055);
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow: 0 7px 22px rgba(25, 30, 26, 0.03);
+}
+
+.cow-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 86px;
+  height: 86px;
+
+  border-radius: 28px;
+
+  background: #f0f1ed;
+
+  font-size: 39px;
+}
+
+.photo-button {
+  margin-top: 13px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #596257;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.cow-photo-area p {
+  margin-top: 5px;
+
+  color: #a0a59f;
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+.cow-form-section {
+  display: grid;
+  gap: 17px;
+
+  margin-top: 28px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  color: #666d65;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid #e1e3de;
+  border-radius: 15px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #20241f;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-field input::placeholder {
+  color: #b1b5af;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #aeb5aa;
+
+  box-shadow: 0 0 0 3px rgba(94, 104, 91, 0.08);
+}
+
+.save-cow-button {
+  width: 100%;
+  height: 54px;
+
+  margin-top: 27px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #20241f;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  box-shadow: 0 10px 25px rgba(22, 27, 23, 0.12);
+
+  transition: transform 0.2s ease;
+}
+
+.save-cow-button:active {
+  transform: scale(0.98);
+}

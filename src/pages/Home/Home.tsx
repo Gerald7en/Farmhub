@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { supabase } from "../../services/supabase.ts"
 
 type Companion = {
   name: string
@@ -33,6 +34,19 @@ const companions: Companion[] = [
 ]
 
 function Home() {
+
+  useEffect(() => {
+  async function testSupabase() {
+    const { data, error } = await supabase
+      .from("farms")
+      .select("id")
+      .limit(1)
+
+    console.log("Supabase test:", { data, error })
+  }
+
+  testSupabase()
+}, [])
   const [activeCompanion, setActiveCompanion] = useState(0)
   const touchStartX = useRef<number | null>(null)
 

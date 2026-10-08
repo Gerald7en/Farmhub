@@ -161,7 +161,12 @@ function Dairy() {
             <h2>Cows</h2>
           </div>
 
-          <button className="see-all">View all</button>
+          <button
+  className="see-all"
+  onClick={() => navigate("/dairy/cows")}
+>
+  View all
+</button>
         </div>
 
         <div className="cow-list">
@@ -189,10 +194,13 @@ function Dairy() {
 
       {/* QUICK ACTION */}
 
-      <button className="dairy-add-button">
-        <span>+</span>
-        Record milk
-      </button>
+    <button
+  className="dairy-add-button"
+  onClick={() => navigate("/dairy/record-milk")}
+>
+  <span>+</span>
+  Record milk
+</button>
     </div>
   )
 }
