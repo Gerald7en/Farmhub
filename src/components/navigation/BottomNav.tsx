@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 function BottomNav() {
   return (
     <nav className="bottom-nav">
-      <NavLink to="/" className="nav-item">
+    <NavLink to="/home" className="nav-item">
         <span>⌂</span>
         <small>Home</small>
       </NavLink>

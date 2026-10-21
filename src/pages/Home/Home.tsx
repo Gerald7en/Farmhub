@@ -34,21 +34,39 @@ const companions: Companion[] = [
 ]
 
 function Home() {
-
-  useEffect(() => {
-  async function testSupabase() {
-    const { data, error } = await supabase
-      .from("farms")
-      .select("id")
-      .limit(1)
-
-    console.log("Supabase test:", { data, error })
-  }
-
-  testSupabase()
-}, [])
+  const [activeCowCount, setActiveCowCount] = useState<number | null>(null)
+  const [milkToday, setMilkToday] = useState<number | null>(null)
+  const [statsError, setStatsError] = useState("")
   const [activeCompanion, setActiveCompanion] = useState(0)
   const touchStartX = useRef<number | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    async function loadFarmStats() {
+      try {
+        const { data: farmId, error: farmError } = await supabase.rpc("get_my_farm_id")
+        if (farmError) throw farmError
+        if (!farmId) throw new Error("No farm is linked to your account.")
+        const date = new Date()
+        const today = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`
+        const [{ data: cows, error: cowsError }, { data: milk, error: milkError }] = await Promise.all([
+          supabase.from("cows").select("id").eq("farm_id", farmId).eq("status", "ACTIVE"),
+          supabase.from("milk_production").select("quantity_litres").eq("farm_id", farmId).eq("production_date", today),
+        ])
+        if (cowsError) throw cowsError
+        if (milkError) throw milkError
+        if (cancelled) return
+        setActiveCowCount(cows?.length ?? 0)
+        setMilkToday((milk ?? []).reduce((sum, row) => sum + (Number(row.quantity_litres) || 0), 0))
+      } catch (error) {
+        if (cancelled) return
+        console.error("LOAD HOME FARM STATS ERROR:", error)
+        setStatsError(error instanceof Error ? error.message : "Couldn't load farm stats.")
+      }
+    }
+    void loadFarmStats()
+    return () => { cancelled = true }
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -135,31 +153,32 @@ function Home() {
             <div className="stat-card">
               <span className="stat-icon">🐄</span>
               <span className="stat-label">COWS</span>
-              <strong>0</strong>
+              <strong>{activeCowCount === null ? "—" : activeCowCount}</strong>
               <p>Active cows</p>
             </div>
 
             <div className="stat-card">
               <span className="stat-icon">🥛</span>
               <span className="stat-label">MILK</span>
-              <strong>0L</strong>
+              <strong>{milkToday === null ? "—" : `${milkToday.toLocaleString()}L`}</strong>
               <p>Produced today</p>
             </div>
 
             <div className="stat-card">
               <span className="stat-icon">🐔</span>
               <span className="stat-label">POULTRY</span>
-              <strong>0</strong>
+              <strong>—</strong>
               <p>Total birds</p>
             </div>
 
             <div className="stat-card">
               <span className="stat-icon">🌱</span>
               <span className="stat-label">GARDEN</span>
-              <strong>0</strong>
+              <strong>—</strong>
               <p>Plants & trees</p>
             </div>
           </div>
+          {statsError && <p className="page-description" role="alert">{statsError}</p>}
         </section>
 
         {/* =========================
